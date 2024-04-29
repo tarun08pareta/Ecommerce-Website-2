@@ -1,0 +1,46 @@
+{
+  "seller": [
+    {
+      "id": "8925",
+      "fullName": "tarun",
+      "email": "tarunkalal841@gmail.com",
+      "password": "123456",
+      "confirm-password": "123456"
+    },
+    {
+      "id": "9643",
+      "fullName": "pareta",
+      "email": "p@gmail.com",
+      "password": "123456",
+      "confirm-password": "123456"
+    },
+    {
+      "id": "8cd4",
+      "fullName": "tarun pareta",
+      "email": "t@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "47a1",
+      "fullName": "tarun pareta",
+      "email": "t@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "74e9",
+      "fullName": "tarun pareta",
+      "email": "t@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    },
+    {
+      "id": "df85",
+      "fullName": "tarun pareta",
+      "email": "t@gmail.com",
+      "password": "123456",
+      "confirmPassword": "123456"
+    }
+  ]
+}
