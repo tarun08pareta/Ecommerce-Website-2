@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 body{
     font-family: sans-serif;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
 }
-.container{
+/* .container{
     margin-right: 5%;
     margin-left: 5%;
-}
+} */

@@ -1,9 +1,4 @@
-body{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-   
-}
+
 
 h1{
     font-weight:900;
@@ -11,6 +6,7 @@ h1{
     text-align: center;
 }
 .signupForm{
+    /* background-image: url('../../assets/blob-scene-haikei.svg'); */
     height:100vh;
     display:flex;
     justify-content:center;
@@ -90,12 +86,14 @@ input:focus{
 }
 .btn a{
     color: blueviolet;
+    
 }
 .signup {
     color: blueviolet;
 }
 .signup span{
     color:#7fb8e6;
+    cursor: pointer;
 }
 
 .signup span::hover{
@@ -104,4 +102,15 @@ input:focus{
 
 a{
     text-decoration: none;
+}
+
+.box2{
+    width:350px;
+    height:385px;
+    font-size:16px;
+    padding:40px 40px;
+    background-color: #0f044c;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 30px;
+
 }

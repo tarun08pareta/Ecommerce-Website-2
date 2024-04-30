@@ -1,22 +1,42 @@
 <div class="signupForm">
-    <div class="box">
-      <h1>Seller Sign-Up</h1>
-     <form #sellerSignUp="ngForm" (ngSubmit)="signup(sellerSignUp.value)" >
-        <div class="user">
-            <i class="fas fa-user"></i>
-            <input type="text" name="fullName" ngModel id="username" placeholder="Full Name">
-            <i class="fas fa-envelope"></i>
-            <input type="text" name="email" ngModel id="email" placeholder="Email Address">
-            <i class="fas fa-unlock-alt"></i>
-            <input type="password" name="password" ngModel id="password" placeholder="Password">
-             <i class="fas fa-unlock-alt"></i>
-            <input type="password" name="confirmPassword" ngModel id="confirm-password" placeholder="Confirm Password">
-          </div>
-          <div class="login-btn">
-            <button class="btn"> <a> Sign Up</a></button>
-            <p class="signup">Already have an account ? <a href="#"><span>Log In</span> </a></p>
-          </div>
-     </form>
-    </div>
+  <div *ngIf="!showLogin " class="box">
+    <h1>Seller Sign-Up</h1>
+    <form #sellerSignUp="ngForm" (ngSubmit)="signup(sellerSignUp.value)">
+      <div class="user">
+        <i class="fas fa-user"></i>
+        <input type="text" name="fullName" ngModel id="username" placeholder="Full Name">
+        <i class="fas fa-envelope"></i>
+        <input type="text" name="email" ngModel id="email" placeholder="Email Address">
+        <i class="fas fa-unlock-alt"></i>
+        <input type="password" name="password" ngModel id="password" placeholder="Password">
+        <i class="fas fa-unlock-alt"></i>
+        <input type="password" name="confirmPassword" ngModel id="confirm-password" placeholder="Confirm Password">
+      </div>
+      <div class="login-btn">
+        <button class="btn"> <a> Sign Up</a></button>
+        <p class="signup">Already have an account ? <a (click)="openLogin()"><span>Log In</span> </a></p>
+      </div>
+    </form>
   </div>
-  
+
+  <!-- login form  -->
+
+  <div *ngIf="showLogin" class="box2">
+    <h1>Seller Login</h1>
+    <p style="color: red;">{{authError}}</p>
+    <form  #sellerLogin="ngForm" (ngSubmit)="Login(sellerLogin.value)">
+      <div class="user">
+
+        <i class="fas fa-envelope"></i>
+        <input type="text" name="email" id="email" ngModel placeholder="Email Address">
+        <i class="fas fa-unlock-alt"></i>
+        <input type="password" name="password" ngModel id="password" placeholder="Password">
+
+      </div>
+      <div class="login-btn">
+        <button class="btn"> <a> Sign In</a></button>
+        <p class="signup">Dont`t have an account ? Click To <a (click)="openLogin()"><span>Sign-Up</span> </a></p>
+      </div>
+    </form>
+  </div>
+</div>

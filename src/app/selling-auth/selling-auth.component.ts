@@ -9,13 +9,26 @@ import { signup } from '../data-type-inter-face';
   styleUrl: './selling-auth.component.css',
 })
 export class SellingAuthComponent implements OnInit {
-  ngOnInit(): void {}
-  constructor(private sellerService: SellerService, private router: Router) {}
+  constructor(private sellerSrv: SellerService, private router: Router) {}
+  showLogin = false;
+  authError: string = '';
+  ngOnInit(): void {
+    this.sellerSrv.reloadSeller();
+  }
   signup(data: signup): void {
-    this.sellerService.userSignUp(data).subscribe((res: any) => {
-      if (res) {
-        this.router.navigateByUrl('/seller-home');
+    this.sellerSrv.userSignUp(data);
+  }
+
+  Login(data: any) {
+    this.authError =''
+    this.sellerSrv.userLogin(data);
+    this.sellerSrv.isLoginError.subscribe((isError) => {
+      if (isError) {
+        this.authError = 'Email  and Password is not correct';
       }
     });
+  }
+  openLogin() {
+    this.showLogin = !this.showLogin;
   }
 }

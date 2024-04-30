@@ -4,3 +4,8 @@ export interface signup {
  "password":string,
  "confirmPassword":string
 }
+
+export interface login{
+   "email":string,
+   "password":string
+}
