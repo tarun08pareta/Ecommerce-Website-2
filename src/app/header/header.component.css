@@ -1,10 +1,12 @@
 .nav {
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  background-color: #0f044cfa;
   padding-top: 10px;
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
 }
 h1 {
   color: blueviolet;
@@ -22,7 +24,7 @@ h1 a {
   padding: 0;
 }
 .nav li {
-  padding-left: 31px;
+  padding-left: 25px;
   padding-top: 8px;
 }
 .nav li a {
@@ -59,4 +61,5 @@ h1 a {
 }
 .ulList {
   width: 20%;
+  padding-right: 20px;
 }

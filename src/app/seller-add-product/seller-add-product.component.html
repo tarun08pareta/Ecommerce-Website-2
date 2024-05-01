@@ -1,0 +1,42 @@
+<div class="add-product">
+
+
+    <div class="product">
+         <h1>Add New Product</h1>
+        <div class="box">
+           
+            <p style="color: green;">{{addProductMessage}}</p>
+            <form #addProduct="ngForm" (ngSubmit)="addNewProduct(addProduct.value)">
+                <div class="user">
+                    <i class="fa-solid fa-p"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product name" ngModel name="name">
+                    <i class="fa-solid fa-rupee-sign"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product price" ngModel name="price">
+                    <i class="fa-solid fa-paintbrush"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product category" ngModel name="category">
+                    <i class="fa-solid fa-paintbrush"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product color" ngModel name="color">
+
+                    <i class="fa-solid fa-image"></i>
+                    <input type="file" (change)="onFileSelected($event)" class="form-input" ngModel name="image">
+                    <!-- <input type="text" class="form-input" placeholder="Enter product image Url" ngModel name="image"> -->
+                    <i class="fa-solid fa-info"></i>
+                    <input type="text" class="form-input" placeholder="Enter product description" ngModel
+                        name="description">
+
+                </div>
+                <div class="login-btn">
+                    <button class="btn"> <a> Add-Product</a></button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

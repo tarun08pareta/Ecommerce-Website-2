@@ -1,1 +1,68 @@
-<p>seller-home works!</p>
+<div class="product-list">
+    <!-- <h1>All Product List</h1> -->
+    <!-- <div class="product-list-main">
+        <section class="box" *ngFor="let product of productList">
+            <div class="content">
+    
+                <div class="left">
+                    <img src="{{product.image}}" class="product_img">
+                    <div class="product_details">
+                        <h4 class="title">{{product.name}}</h4>
+                        <p class="discription">{{product.category}}</p>
+                        <p class="price">₹{{product.price}} <span class="price_original">20,0000</span> <span class="offer">
+                                79% OFF</span></p>
+    
+                    </div>
+                </div>
+    
+                <div class="right">
+                    <div class="product_description">
+                        <h4>PRODUCT DESCRIPTION</h4>
+                        <p>{{product.description}}
+                        </p>
+                        <p><span class="highlight">Country of Origin -</span>
+                            India
+                        </p>
+    
+                        <p><span class="highlight">COLOR -</span>
+                            {{product.color}} <span class="special"></span>
+                        </p>
+    
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    </div> -->
+
+
+    <div class="container">
+        <div class="header">
+          <h2> All Product List</h2>
+        </div>
+        <div class="content" >
+          <table border="1" >
+            <tr>
+              <th>Product-Name</th>
+              <th>Image</th>
+              <th>Price</th>
+              <th>category</th>
+              <th>Color</th>
+              <th>Description</th>
+            </tr>
+            <tr *ngFor="let product of productList">
+              <td>{{product.name}} </td>
+              <td><img src="{{product.image}}" width="80px" alt="this is image apple" /></td>
+              <td>₹{{product.price}}</td>
+              <td>{{product.category}}</td>
+              <td>{{product.color}}</td>
+              <td>{{product.description}}</td>
+              
+      
+            </tr>
+          
+          </table>
+        </div>
+      
+      </div>
+</div>
