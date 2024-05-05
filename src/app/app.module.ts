@@ -9,9 +9,11 @@ import { SellingAuthComponent } from './selling-auth/selling-auth.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { AngularFontAwesomeComponent, AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { SellerHomeComponent } from './seller-home/seller-home.component';
 import { SellerAddProductComponent } from './seller-add-product/seller-add-product.component';
+import { SellerUpdateProductsComponent } from './seller-update-products/seller-update-products.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { SellerAddProductComponent } from './seller-add-product/seller-add-produ
     HomeComponent,
     SellingAuthComponent,
     SellerHomeComponent,
-    SellerAddProductComponent
+    SellerAddProductComponent,
+    SellerUpdateProductsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,RouterOutlet,RouterLink,FormsModule,HttpClientModule
+    AppRoutingModule,RouterOutlet,RouterLink,FormsModule,HttpClientModule, NgbModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

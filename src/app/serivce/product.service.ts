@@ -19,4 +19,28 @@ export class ProductService {
   {
     return this.http.get<product[]>(Constant.API_END_POINT+Constant.METHODS.ADD_PRODUCT)
   }
+
+  productDelete(id:string)
+  {
+    // return this.http.delete(`http://localhost:3000/products/${id}`)
+    return this.http.delete(Constant.API_END_POINT+Constant.METHODS.PRODUCT+id)
+  }
+  getProduct(id:string)
+  {
+    return this.http.get<product>(Constant.API_END_POINT+Constant.METHODS.PRODUCT+id)
+    
+  }
+  updateProduct(product:product)
+  {
+return this.http.put<product>(Constant.API_END_POINT+Constant.METHODS.PRODUCT+product.id,product)
+  }
+
+  popularProducts()
+  {
+    return this.http.get<product[]>(`http://localhost:3000/products?_limit=3`)
+  }
+  trendyProducts()
+  {
+    return this.http.get<product[]>(`http://localhost:3000/products?_limit=4`)
+  }
 }

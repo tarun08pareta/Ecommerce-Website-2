@@ -1,1 +1,79 @@
-<p>home works!</p>
+<ngb-carousel *ngIf="popularProducts">
+    <ng-template ngbSlide *ngFor="let product of popularProducts">
+        <div class="picsum-img-wrapper">
+            <img class="product-header-image" src="{{product.image}}" alt="Random first slide" />
+        </div>
+        <div class="carousel-caption">
+            <h3>{{product.name}}</h3>
+            <p>{{product.description}}</p>
+        </div>
+    </ng-template>
+
+
+</ngb-carousel>
+
+
+
+
+
+
+
+<!-- <div class="product-list-main" *ngIf="popularProducts">
+    <section class="box" *ngFor="let product of popularProducts">
+        <div class="content">
+
+            <div class="left">
+                <img src="{{product.image}}" class="product_img">
+                <div class="product_details">
+                    <h4 class="title">{{product.name}}</h4>
+                    <p class="discription">{{product.category}}</p>
+                    <p class="price">₹{{product.price}} <span class="price_original">20,0000</span> <span class="offer">
+                            79% OFF</span></p>
+
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="product_description">
+                    <h4>PRODUCT DESCRIPTION</h4>
+                    <p>{{product.description}}
+                    </p>
+                    <p><span class="highlight">Country of Origin -</span>
+                        India
+                    </p>
+
+                    <p><span class="highlight">COLOR -</span>
+                        {{product.color}} <span class="special"></span>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</div> -->
+
+<!-- new card -->
+<div class="main2" *ngIf="trendyProducts">
+    <div class="product-card" *ngFor="let product of trendyProducts">
+        <div class="badge">Hot</div>
+        <div class="product-tumb">
+            <img src="{{product.image}}" alt="">
+        </div>
+        <div class="product-details">
+            <span class="product-catagory">{{product.color}}</span>
+            <h4><a href="">{{product.name}}</a></h4>
+            <p>{{product.category}}</p>
+            <p>{{product.description}}</p>
+            <div class="product-bottom-details">
+                <div class="product-price"><small>₹960000.00</small>₹{{product.price}}</div>
+                <div class="product-links">
+                    <a href=""><i class="fa fa-heart"></i></a>
+                    <a href=""><i class="fa fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

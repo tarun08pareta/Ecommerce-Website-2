@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
       if (val.url) {
         if (typeof localStorage !== 'undefined') {
           if (localStorage.getItem('seller') && val.url.includes('seller')) {
-            console.warn('in seller area ');
+            // console.warn('in seller area ');
             this.menuType = 'seller';
             if (localStorage.getItem('seller')) {
               let sellerStore = localStorage.getItem('seller');

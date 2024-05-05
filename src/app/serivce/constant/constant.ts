@@ -3,7 +3,9 @@ export const Constant = {
      METHODS:{
        
          SELLER:"seller",
-          ADD_PRODUCT:"products"
+          ADD_PRODUCT:"products",
+          PRODUCT:"products/",
+          POPULAR_PRODUCT:"products"
          
      }
  }

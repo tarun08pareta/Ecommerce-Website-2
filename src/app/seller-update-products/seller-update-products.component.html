@@ -1,0 +1,42 @@
+<div class="add-product">
+
+
+    <div class="product">
+         <h1>Update Product</h1>
+        <div class="box">
+           
+            <p style="color: green;">{{updateProductMessage}}</p>
+            <form #addProduct="ngForm" (ngSubmit)="Producupdatet(addProduct.value)">
+                <div class="user">
+                    <i class="fa-solid fa-p"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product name" ngModel="{{productData?.name}}" name="name">
+                    <i class="fa-solid fa-rupee-sign"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product price" ngModel="{{productData?.price}}" name="price">
+                    <i class="fa-solid fa-paintbrush"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product category" ngModel="{{productData?.category}}" name="category">
+                    <i class="fa-solid fa-paintbrush"></i>
+
+                    <input type="text" class="form-input" placeholder="Enter product color" ngModel="{{productData?.color}}" name="color">
+
+                    <i class="fa-solid fa-image"></i>
+                    <input type="file" (change)="onFileSelected($event)" class="form-input" ngModel="{{productData?.image}}" name="image">
+                    <!-- <input type="text" class="form-input" placeholder="Enter product image Url" ngModel="{{productData?.image}}" name="image"> -->
+                    <i class="fa-solid fa-info"></i>
+                    <input type="text" class="form-input" placeholder="Enter product description" ngModel="{{productData?.description}}"
+                        name="description">
+
+                </div>
+                <div class="login-btn">
+                    <button class="btn"> <a> Update-Product</a></button>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>
