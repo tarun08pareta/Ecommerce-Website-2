@@ -1,11 +1,12 @@
 .nav {
   width: 100vw;
-  height: 8vh;
+  height: 11vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #0f044cfa;
   padding-top: 10px;
+  padding-bottom: 10px;
   /* padding-left: 10px; */
   /* padding-right: 10px; */
 }
@@ -62,6 +63,6 @@ h1 a {
   height: 39px;
 }
 .ulList {
-  width: 20%;
+  width: 23%;
   padding-right: 20px;
 }

@@ -25,9 +25,10 @@ export class SellerUpdateProductsComponent implements OnInit {
 
     productId &&
       this.prodSry.getProduct(productId).subscribe((res) => {
-        console.warn(res);
+        // console.warn(res);
         this.productData = res;
-        console.warn('id', this.productData);
+        // console.warn('id', this.productData);
+        
       });
   }
 
@@ -35,10 +36,13 @@ export class SellerUpdateProductsComponent implements OnInit {
     if(this.productData)
       {
         data.id=this.productData.id
+       
       }
     this.prodSry.updateProduct({...data,image:this.imageBases64}).subscribe((res) => {
       if (res) {
         this.updateProductMessage = 'product is updated';
+
+        
       }
     });
     setTimeout(() => {
@@ -61,4 +65,6 @@ export class SellerUpdateProductsComponent implements OnInit {
       };
     }
   }
+
+
 }

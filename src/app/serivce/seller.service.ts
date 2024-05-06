@@ -41,7 +41,7 @@ export class SellerService {
 
   userLogin(data: login) {
     this.http
-      .get(`http://localhost:3000/seller?email=${data.email}&password=${data.password}`, {
+      .get(Constant.API_END_POINT+Constant.METHODS.SELLER+`?email=${data.email}&password=${data.password}`, {
         observe: 'response',
       })
       .subscribe((res: any) => {

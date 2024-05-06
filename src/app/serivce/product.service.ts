@@ -37,10 +37,15 @@ return this.http.put<product>(Constant.API_END_POINT+Constant.METHODS.PRODUCT+pr
 
   popularProducts()
   {
-    return this.http.get<product[]>(`http://localhost:3000/products?_limit=3`)
+    return this.http.get<product[]>(Constant.API_END_POINT+Constant.METHODS.POPULAR_PRODUCT+`?_limit=3`)
   }
   trendyProducts()
   {
-    return this.http.get<product[]>(`http://localhost:3000/products?_limit=4`)
+    return this.http.get<product[]>(Constant.API_END_POINT+Constant.METHODS.POPULAR_PRODUCT+`?_limit=8`)
+  }
+
+  searchProducts(query:string){
+    // return this.http.get<product[]>(Constant.API_END_POINT+Constant.METHODS.POPULAR_PRODUCT+`?q=${query}`)
+    return this.http.get<product[]>(`http://localhost:3000/products?name=${query}`)
   }
 }

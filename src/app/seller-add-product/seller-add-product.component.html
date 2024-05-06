@@ -3,22 +3,21 @@
 
     <div class="product">
         <h1>Add New Product</h1>
-        <div class="box">
+        <div class="inner-div">
 
             <p style="color: green;">{{addProductMessage}}</p>
             <form #addProduct="ngForm" (ngSubmit)="addNewProduct(addProduct.value)">
                 <div class="user">
                     <i class="fa-solid fa-p"></i>
-
                     <input type="text" class="form-input" placeholder="Enter product name" ngModel name="name">
+
                     <i class="fa-solid fa-rupee-sign"></i>
-
                     <input type="text" class="form-input" placeholder="Enter product price" ngModel name="price">
-                    <i class="fa-solid fa-paintbrush"></i>
 
+                    <i class="fa-solid fa-paintbrush"></i>
                     <input type="text" class="form-input" placeholder="Enter product category" ngModel name="category">
-                    <i class="fa-solid fa-paintbrush"></i>
 
+                    <i class="fa-solid fa-paintbrush"></i>
                     <input type="text" class="form-input" placeholder="Enter product color" ngModel name="color">
 
                     <i class="fa-solid fa-image"></i>
