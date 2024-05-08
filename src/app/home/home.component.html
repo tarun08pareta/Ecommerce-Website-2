@@ -2,7 +2,7 @@
     <ngb-carousel *ngIf="popularProducts">
         <ng-template ngbSlide *ngFor="let product of popularProducts">
             <div class="picsum-img-wrapper">
-                <img class="product-header-image" src="{{product.image}}" alt="Random first slide" />
+                 <a routerLink="/details/{{product.id}}"> <img class="product-header-image" src="{{product.image}}" alt="Random first slide" /> </a>
             </div>
             <div class="carousel-caption">
                 <h3>{{product.name}}</h3>
@@ -19,18 +19,22 @@
         <div class="product-card" *ngFor="let product of trendyProducts">
             <div class="badge">Hot</div>
             <div class="product-tumb">
-                <img src="{{product.image}}" alt="">
+               <a routerLink="/details/{{product.id}}"> <img src="{{product.image}}" alt=""></a> 
             </div>
             <div class="product-details">
                 <span class="product-catagory">{{product.color}}</span>
-                <h4><a href="">{{product.name}}</a></h4>
+                <h4><a routerLink="/details/{{product.id}}">{{product.name}}</a></h4>
                 <p>{{product.category}}</p>
                 <p>{{product.description}}</p>
+                <div class="product-price"><small>₹960000.00</small>₹{{product.price}}</div>
                 <div class="product-bottom-details">
-                    <div class="product-price"><small>₹960000.00</small>₹{{product.price}}</div>
+                   
                     <div class="product-links">
+                        <a style="color: blue; text-decoration: underline" routerLink="/details/{{product.id}}">View Details</a>
+                       <div class="product-links-inner">
                         <a href=""><i class="fa fa-heart"></i></a>
                         <a href=""><i class="fa fa-shopping-cart"></i></a>
+                       </div>
                     </div>
                 </div>
             </div>

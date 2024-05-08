@@ -6,6 +6,14 @@
         (keyup)="searchProducts($event)" (blur)="hideSearch()"
         placeholder="Search For Product" name="" id="">
         <button (click)="submitSearch(searchInput.value)">Search</button>
+        <!-- <ul class="suggested-search">
+            <li *ngFor="let item of searchResults">
+                <a (mousedown)="redirectToDetails(item.id)" >
+                    {{item.name}}
+
+                </a>
+            </li> -->
+        <!-- </ul> -->
     </div>
     <div class="ulList" [ngSwitch]="menuType">
         <ul *ngSwitchCase="'default'">
