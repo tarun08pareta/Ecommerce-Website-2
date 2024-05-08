@@ -12,6 +12,7 @@ import { product } from '../data-type-inter-face';
 export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   sellerName: string = '';
+  userName:string='';
   searchResult: undefined | product[];
   constructor(private router: Router, private prodSrv: ProductService) {}
 
@@ -27,7 +28,15 @@ export class HeaderComponent implements OnInit {
               let sellerData = sellerStore && JSON.parse(sellerStore)[0];
               this.sellerName = sellerData.fullName;
             }
-          } else {
+          } 
+          else if(localStorage.getItem('users')){
+            let userStore = localStorage.getItem('users');
+            let userData = userStore ? JSON.parse(userStore) : null;
+            this.userName = userData.fullName;
+            this.menuType = "user";
+                console.warn('inside user');
+          }
+          else {
             console.warn('outside seller');
             this.menuType = 'default';
           }
@@ -37,6 +46,12 @@ export class HeaderComponent implements OnInit {
   }
   logout() {
     localStorage.removeItem('seller');
+    this.router.navigate(['/']);
+  }
+
+  userLogout()
+  {
+    localStorage.removeItem('users');
     this.router.navigate(['/']);
   }
 

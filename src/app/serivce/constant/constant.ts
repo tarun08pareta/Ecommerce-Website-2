@@ -5,5 +5,6 @@ export const Constant = {
     ADD_PRODUCT: 'products',
     PRODUCT: 'products/',
     POPULAR_PRODUCT: 'products',
+    USER: 'users',
   },
 };

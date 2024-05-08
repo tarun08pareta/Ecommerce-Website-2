@@ -48,6 +48,7 @@
     display: inline-block;
     padding-right: 5px !important;
   }
+ 
   
   .footer .col ul li:hover {
     color: #ffffff;
@@ -58,6 +59,7 @@
   .clearfix {
     clear: both;
   }
+ 
   @media only screen and (min-width: 1280px) {
     .contain {
       width: 1200px;
