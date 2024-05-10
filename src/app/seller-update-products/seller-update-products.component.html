@@ -23,7 +23,8 @@
 
                     <i class="fa-solid fa-image"></i>
                     <input type="file" (change)="onFileSelected($event)" class="form-input" ngModel="{{productData?.image}}" name="image">
-                    <!-- <input type="text" class="form-input" placeholder="Enter product image Url" ngModel="{{productData?.image}}" name="image"> -->
+                    <!-- <input  type="hidden" class="form-input" placeholder="Enter product image Url" ngModel="{{productData?.image}}" name="hiddenImage"> -->
+                    
                     <i class="fa-solid fa-info"></i>
                     <input type="text" class="form-input" placeholder="Enter product description" ngModel="{{productData?.description}}"
                         name="description">

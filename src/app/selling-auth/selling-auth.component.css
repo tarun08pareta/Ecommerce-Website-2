@@ -7,7 +7,7 @@ h1{
 }
 .signupForm{
     /* background-image: url('../../assets/blob-scene-haikei.svg'); */
-    height:100vh;
+    height:525;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -15,13 +15,16 @@ h1{
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;
     color:#fff;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .box{
-    width:350px;
-    height:460px;
+    width:370px;
+    height:495px;
     font-size:16px;
-    padding:40px 40px;
+    padding:20px 40px;
     background-color: #0f044c;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 30px;
@@ -36,7 +39,7 @@ h1{
 }
 
 input{
-    width:90%;
+    width:101%;
     margin-bottom:25px;
     padding:0 30px 15px;
     font-size:16px;
@@ -70,6 +73,8 @@ input:focus{
     display:block;
     width:80%;
     padding:15px;
+    /* padding-bottom: 10px; */
+    margin-top: -20px;
     background-color: #eeeeee;
     color:#0f044c;
     border:none;
@@ -103,14 +108,28 @@ input:focus{
 a{
     text-decoration: none;
 }
-
+p{
+    padding-top: 13px;
+}
 .box2{
-    width:350px;
-    height:385px;
+    width:382px;
+    height:495px;
     font-size:16px;
     padding:40px 40px;
     background-color: #0f044c;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 30px;
 
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
+   
+}
+
+ .box2 form{
+    display: flex;
+    flex-direction: column;
+    /* justify-self: space-around; */
+    align-items: center;
+    gap: 18px;
 }

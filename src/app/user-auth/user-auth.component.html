@@ -1,42 +1,57 @@
 <div class="signupForm">
-  
-    <div *ngIf="!showLogin" class="box">
-      <h1>User Sign-Up</h1>
-      <form #userSignupForm="ngForm" (ngSubmit)="userSignup(userSignupForm.value)">
-        <div class="user">
-          <i class="fas fa-user"></i>
-          <input type="text" name="fullName" ngModel id="username" placeholder="Full Name">
-          <i class="fas fa-envelope"></i>
-          <input type="text" name="email" ngModel id="email" placeholder="Email Address">
-          <i class="fas fa-unlock-alt"></i>
-          <input type="password" name="password" ngModel id="password" placeholder="Password">
-         
-        </div>
-        <div class="login-btn">
-          <button class="btn"> <a> Sign Up</a></button>
-          <p class="signup">Already have an account ? <a (click)="openLogin()"><span>Log In</span> </a></p>
-        </div>
-      </form>
-    </div>
-  
-    <!-- login form  -->
-  
-    <div *ngIf="showLogin" class="box2">
-      <h1>User Login</h1>
-      <!-- <p style="color: red;">authError</p> -->
-      <form #userLoginForm="ngForm" (ngSubmit)="userLogin(userLoginForm.value)" >
-        <div class="user">
-  
-          <i class="fas fa-envelope"></i>
-          <input type="text" name="email" id="email" ngModel placeholder="Email Address">
-          <i class="fas fa-unlock-alt"></i>
-          <input type="password" name="password" ngModel id="password" placeholder="Password">
-  
-        </div>
-        <div class="login-btn">
-          <button class="btn"> <a> Sign In</a></button>
-          <p class="signup">Dont`t have an account ? Click To <a (click)="openLogin()"><span>Sign-Up</span> </a></p>
-        </div>
-      </form>
-    </div>
+
+  <div *ngIf="!showLogin" class="box">
+    <h1>User Sign-Up</h1>
+    <form #userSignupForm="ngForm" (ngSubmit)="userSignup(userSignupForm.value)">
+      <div class="user">
+        <i class="fas fa-user"></i>
+        <input type="text" name="fullName" ngModel id="username" placeholder="Full Name" #name="ngModel" required>
+        <p class="invalid-input"><span *ngIf="name.invalid && name.touched">Please Enter Valid name</span></p>
+        <i class="fas fa-envelope"></i>
+        <input type="text" name="email" ngModel id="email" placeholder="Email Address" #email="ngModel" required email>
+        <p class="invalid-input"><span *ngIf="email.invalid && email.touched">Please Enter Valid Email</span></p>
+        <i class="fas fa-unlock-alt"></i>
+        <input type="password" name="password" ngModel id="password" placeholder="Password" #password="ngModel" required 
+        minlength="6" maxlength="10">
+          <p class="invalid-input"><span *ngIf="password.invalid && (password.touched || password.dirty)">Please Enter Valid Password</span>
+            <span *ngIf="password.errors && password.errors['maxlength']">Password must be at most 10 characters</span>
+            <span *ngIf="password.errors && password.errors['minlength']">Password must be at least 6 characters</span>
+        </p>
+
+      </div>
+      <div class="login-btn">
+        <button class="btn" [disabled]="userSignupForm.invalid" > <a> Sign Up</a></button>
+        <p class="signup">Already have an account ? <a (click)="switchpage()"><span>Log In</span> </a></p>
+      </div>
+    </form>
   </div>
+
+  <!-- login form  -->
+
+  <div *ngIf="showLogin" class="box2">
+    <h1>User Login</h1>
+    <p style="color: red;">{{autError}}</p>
+    <form #userLoginForm="ngForm" (ngSubmit)="userLogin(userLoginForm.value)">
+      <div class="user">
+
+        <i class="fas fa-envelope"></i>
+        <input type="text" name="email" id="email" ngModel placeholder="Email Address" #email="ngModel" required email>
+        <p class="invalid-input"><span *ngIf="email.invalid && email.touched">Please Enter Valid Email</span></p>
+
+        <i class="fas fa-unlock-alt"></i>
+        <input type="password" name="password" ngModel id="password" placeholder="Password" #password="ngModel" required
+          minlength="6" maxlength="10">
+        <p class="invalid-input"><span *ngIf="password.invalid && (password.touched || password.dirty)">Please Enter Valid Password</span>
+          <span *ngIf="password.errors && password.errors['maxlength']">Password must be at most 10 characters</span>
+          <span *ngIf="password.errors && password.errors['minlength']">Password must be at least 6 characters</span>
+        </p>
+
+
+      </div>
+      <div class="login-btn">
+        <button class="btn" [disabled]="userLoginForm.invalid"> <a> Login</a></button>
+        <p class="signup">Dont`t have an account ? Click To <a (click)="switchpage()"><span>Sign-Up</span> </a></p>
+      </div>
+    </form>
+  </div>
+</div>

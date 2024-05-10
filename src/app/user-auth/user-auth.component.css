@@ -113,7 +113,7 @@ p{
 }
 .box2{
     width:382px;
-    height:495px;
+    height:520px;
     font-size:16px;
     padding:40px 40px;
     background-color: #0f044c;
@@ -132,4 +132,14 @@ p{
     /* justify-self: space-around; */
     align-items: center;
     gap: 18px;
+}
+
+.invalid-input{
+    color: red;
+    font-size: 12px;
+    margin-top: -20px;
+}
+
+.box2 form button:disabled{
+    cursor: not-allowed;
 }
