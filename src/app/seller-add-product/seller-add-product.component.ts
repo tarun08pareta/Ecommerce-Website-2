@@ -16,15 +16,16 @@ export class SellerAddProductComponent implements OnInit {
   constructor(private prodSrv: ProductService,private router:Router) {}
   ngOnInit(): void {}
 
-  productObject: product = {
-    id: '',
-    name: '',
-    price: 0,
-    category: '',
-    color: '',
-    image: '',
-    description: '',
-  };
+  // productObject: product = {
+  //   id: '',
+  //   name: '',
+  //   price: 0,
+  //   category: '',
+  //   color: '',
+  //   image: '',
+  //   description: '',
+  //   quantity: 0,
+  // };
   imageBases64: string = '';
   addNewProduct(data: product) {
     console.warn({ ...data, image: this.imageBases64 });

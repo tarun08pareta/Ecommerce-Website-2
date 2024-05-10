@@ -12,8 +12,9 @@ import { product } from '../data-type-inter-face';
 export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   sellerName: string = '';
-  userName:string='';
+  userName: string = '';
   searchResult: undefined | product[];
+  cartItem:number = 0;
   constructor(private router: Router, private prodSrv: ProductService) {}
 
   ngOnInit(): void {
@@ -29,29 +30,36 @@ export class HeaderComponent implements OnInit {
               // console.log(sellerData)
               this.sellerName = sellerData.fullName;
             }
-          } 
-          else if(localStorage.getItem('users')){
+          } else if (localStorage.getItem('users')) {
             let userStore = localStorage.getItem('users');
             let userData = userStore ? JSON.parse(userStore) : null;
             this.userName = userData.fullName;
-            this.menuType = "user";
-                console.warn('inside user');
-          }
-          else {
-            console.warn('outside seller');
+            this.menuType = 'user';
+            // console.warn('inside user');
+          } else {
+            // console.warn('outside seller');
             this.menuType = 'default';
           }
         }
       }
     });
+    if (typeof localStorage !== 'undefined') {
+      let cartData = localStorage.getItem('localcart');
+      if (cartData) {
+        this.cartItem = JSON.parse(cartData).length;
+      }
+    }
+    this.prodSrv.cartToData.subscribe((res) => {
+      this.cartItem=res.length
+    })
   }
+
   logout() {
     localStorage.removeItem('seller');
     this.router.navigate(['/']);
   }
 
-  userLogout()
-  {
+  userLogout() {
     localStorage.removeItem('users');
     this.router.navigate(['/']);
   }
@@ -62,7 +70,7 @@ export class HeaderComponent implements OnInit {
       // console.warn('element value:',element.value);
 
       this.prodSrv.searchProducts(element.value).subscribe((res) => {
-        console.warn('Response:',res);
+        console.warn('Response:', res);
 
         if (res.length > 5) {
           res.length = length;
@@ -71,19 +79,15 @@ export class HeaderComponent implements OnInit {
       });
     }
   }
-  hideSearch()
-  {
-    this.searchResult =undefined
+  hideSearch() {
+    this.searchResult = undefined;
   }
 
-  redirectToDetails(id:number)
-  {
-    this.router.navigate(['/details/',+id]);
+  redirectToDetails(id: number) {
+    this.router.navigate(['/details/', +id]);
   }
   submitSearch(val: string) {
     // console.warn(val);
     this.router.navigate([`search/${val}`]);
   }
-
-
 }

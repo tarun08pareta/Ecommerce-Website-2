@@ -13,7 +13,7 @@ export class SellerUpdateProductsComponent implements OnInit {
   productData: undefined | product;
   imageBases64: string = '';
   updateProductMessage: string | undefined;
-
+  getImage: string = '';
   constructor(
     private route: ActivatedRoute,
     private prodSry: ProductService,
@@ -28,7 +28,7 @@ export class SellerUpdateProductsComponent implements OnInit {
       this.prodSry.getProduct(productId).subscribe((res) => {
         // const filename = res.image
         this.productData = res;
-
+        this.getImage = res.image;
         // console.warn('image',filename)
 
         // console.warn('id', this.productData);
@@ -39,8 +39,10 @@ export class SellerUpdateProductsComponent implements OnInit {
     if (this.productData) {
       data.id = this.productData.id;
     }
+    const image = this.imageBases64 ? this.imageBases64 : this.getImage;
+
     this.prodSry
-      .updateProduct({ ...data, image: this.imageBases64 })
+      .updateProduct({ ...data, image: image })
       .subscribe((res) => {
         if (res) {
           this.updateProductMessage = 'product is updated';

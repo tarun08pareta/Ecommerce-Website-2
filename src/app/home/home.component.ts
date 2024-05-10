@@ -10,6 +10,8 @@ import { product } from '../data-type-inter-face';
 export class HomeComponent  implements OnInit{
   popularProducts: undefined| product[];
   trendyProducts : undefined | product[];
+  // productItem:undefined | product[]
+
   constructor(private prodSrv:ProductService) {}
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   ngOnInit(): void {
@@ -21,4 +23,19 @@ export class HomeComponent  implements OnInit{
         this.trendyProducts=res
       })
   }
+
+  // addToCart() {
+  //   if (this.productItem) {
+  //     this.productItem.quantity = this.productItem;
+
+  //     if (!localStorage.getItem('users')) {
+  //       this.prodSrv.localAddToCart(this.productItem)
+         
+       
+  //     } 
+  //     // else {
+  //     //   console.warn('else');
+  //     // }
+  //   }
+  // }
 }

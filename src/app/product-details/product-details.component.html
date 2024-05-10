@@ -13,7 +13,8 @@
             <h6>description: {{productDetailes.description}}</h6>
 
             <div class="btns">
-                <button class="btn"><a>Add To Cart</a></button>
+                <button *ngIf="!removecart" class="btn" (click)="addToCart()"><a>Add To Cart</a></button>
+                <button *ngIf="removecart" class="btn" (click)="removeToCart(productDetailes.id)"><a>Remove To Cart</a></button>
                 <button class="btn"><a>Buy Now</a></button>
             </div>
             <div class="quantity">
