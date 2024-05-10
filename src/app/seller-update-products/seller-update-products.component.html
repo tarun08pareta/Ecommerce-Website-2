@@ -23,8 +23,9 @@
 
                     <i class="fa-solid fa-image"></i>
                     <div class="img">
-                        <img [src]="getImage" alt="" height="50px">
-                    <input type="file" (change)="onFileSelected($event)" class="form-input" name="image">
+                        <label for="upload"><img [src]="getImage" alt="" height="50px"></label>
+                        
+                    <input type="file" id="upload" (change)="onFileSelected($event)" class="d-none" name="image">
                     </div>
                     <!-- <input type="hidden" class="form-input" placeholder="Enter product image Url" ngModel="{{productData?.image}}" name="hiddenImage"> -->
                    

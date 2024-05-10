@@ -64,6 +64,7 @@ export class SellerUpdateProductsComponent implements OnInit {
       console.warn(file);
       reader.onload = () => {
         this.imageBases64 = reader.result as string;
+        this.getImage= reader.result as string;
 
         //  console.log('Filename:', filename);
         // console.log('Base64 String:', this.imageBases64);
