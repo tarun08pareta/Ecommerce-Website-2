@@ -7,8 +7,7 @@ import { Constant } from './constant/constant';
   providedIn: 'root',
 })
 export class ProductService {
-
-  cartToData=new EventEmitter<product[] |  [] >();
+  cartToData = new EventEmitter<product[] | []>();
   constructor(private http: HttpClient) {}
 
   addNewProduct(data: product) {
@@ -62,33 +61,45 @@ export class ProductService {
 
   localAddToCart(data: product) {
     let cartData = [];
-    let localCartCheck= localStorage.getItem('localcart');
-    if(!localCartCheck)
-      {
-        localStorage.setItem('localcart',JSON.stringify([data]))
-      }else{
-        cartData = JSON.parse(localCartCheck);
-        cartData.push(data)
-        localStorage.setItem('localcart',JSON.stringify(cartData))
-      }
-      this.cartToData.emit(cartData);
+    let localCartCheck = localStorage.getItem('localcart');
+    if (!localCartCheck) {
+      localStorage.setItem('localcart', JSON.stringify([data]));
+    } else {
+      cartData = JSON.parse(localCartCheck);
+      cartData.push(data);
+      localStorage.setItem('localcart', JSON.stringify(cartData));
+    }
+    this.cartToData.emit(cartData);
   }
 
   removeToCart(product_Id: string) {
-   
-    let cartData= localStorage.getItem('localcart');
-    if(cartData)
-      {
-        let items:product[]=JSON.parse(cartData)
-          items = items.filter((item:product)=>product_Id!==item.id)
-          localStorage.setItem('localcart',JSON.stringify(items))
-          this.cartToData.emit(items);
-      }
-      
+    let cartData = localStorage.getItem('localcart');
+    if (cartData) {
+      let items: product[] = JSON.parse(cartData);
+      items = items.filter((item: product) => product_Id !== item.id);
+      localStorage.setItem('localcart', JSON.stringify(items));
+      this.cartToData.emit(items);
+    }
   }
 
-  addToCartByUser(cartData:cart)
-  {
-return this.http.post(Constant.API_END_POINT+Constant.METHODS.CART,cartData)
+  addToCartByUser(cartData: cart) {
+    return this.http.post(
+      Constant.API_END_POINT + Constant.METHODS.CART,
+      cartData
+    );
+  }
+
+  getCartList(userId: string) {
+    return this.http
+      .get<product[]>(`http://localhost:3000/cart?userId=`+userId, {
+        observe: 'response',
+      })
+      .subscribe((res) => {
+        console.warn('respoonse:' ,res )
+        if (res && res.body) {
+          this.cartToData.emit(res.body);
+         
+        }
+      });
   }
 }

@@ -27,6 +27,7 @@ export class SellerAddProductComponent implements OnInit {
   //   quantity: 0,
   // };
   imageBases64: string = '';
+  
   addNewProduct(data: product) {
     console.warn({ ...data, image: this.imageBases64 });
     this.prodSrv
@@ -53,6 +54,7 @@ export class SellerAddProductComponent implements OnInit {
 
       reader.onload = () => {
         this.imageBases64 = reader.result as string;
+        
       };
     }
 

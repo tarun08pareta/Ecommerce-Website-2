@@ -21,12 +21,13 @@ h1{
 
 .inner-div{
     width:365px;
-    height:588px;
+    height:575px;
     font-size:16px;
     padding:8px 14px;
     background-color: #0f044c;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 30px;
+    margin-bottom: 20px;
 }
 
 .inner-div p{
@@ -34,7 +35,7 @@ h1{
 }
 
 .user{
-    margin-top: 50px;
+    margin-top: 75px;
 }
 
 .fas{
@@ -68,7 +69,7 @@ input:focus{
 }
 
 .login-btn{
-    margin-top:10px;
+    margin-top:65px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -122,4 +123,19 @@ a{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     border-radius: 30px;
 
+}
+img{
+    margin-left: 114px;
+    margin-top: -15px;
+   background-color: red;
+}
+
+.invalid-input{
+    color: red;
+    font-size: 12px;
+    margin-top: -20px;
+}
+
+.login-btn .btn button:disabled{
+    cursor: not-allowed;
 }

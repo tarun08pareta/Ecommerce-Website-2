@@ -51,6 +51,16 @@ export class UserService {
           this.invalidUserAuth.emit(true);
         }
       });
+      return this.http
+      .get<signup[]>(
+        Constant.API_END_POINT +
+          Constant.METHODS.USER +
+          `?email=${user.email}&password=${user.password}`,
+
+        {
+          observe: 'response',
+        }
+      )
   }
 
   userAuthReload() {

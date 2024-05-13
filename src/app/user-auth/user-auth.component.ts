@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { login, signup } from '../data-type-inter-face';
+import { cart, login, product, signup } from '../data-type-inter-face';
 import { UserService } from '../serivce/user.service';
+import { ProductService } from '../serivce/product.service';
 
 @Component({
   selector: 'app-user-auth',
@@ -8,9 +9,9 @@ import { UserService } from '../serivce/user.service';
   styleUrl: './user-auth.component.css',
 })
 export class UserAuthComponent implements OnInit {
-  showLogin = false;
-autError:string=''
-  constructor(private userSrv: UserService) {}
+  showLogin = true;
+  autError: string = '';
+  constructor(private userSrv: UserService, private prodSrv: ProductService) {}
   ngOnInit(): void {
     this.userSrv.userAuthReload();
   }
@@ -22,18 +23,21 @@ autError:string=''
 
   userLogin(data: login) {
     this.userSrv.userLogin(data);
-    this.userSrv.invalidUserAuth.subscribe((res)=>{
+    this.userSrv.invalidUserAuth.subscribe((error) => {
       // console.warn("response",res)
-      if(res)
-        {
-     this.autError='Please enter valid email and password'
-        }
-    })
+      if (error) {
+        this.autError = 'Please enter valid email and password';
+      } else {
+       
+        
+      }
+    });
   }
-  
 
   //switch page
   switchpage() {
     this.showLogin = !this.showLogin;
   }
+
+ 
 }
