@@ -1,0 +1,47 @@
+
+<h1>CheckOut</h1>
+<div class="main">
+
+    <div class="box">
+        <h1>Add Shipping Address</h1>
+        <form #orderdata="ngForm">
+            <div class="user">
+
+
+
+                <input type="text" name="email" ngModel id="email" placeholder="Email Address" #email="ngModel" required
+                    email>
+                <p class="invalid-input"><span *ngIf="email.invalid && email.touched">Please Enter Valid Email</span>
+                </p>
+
+
+                <input type="text" name="Address" ngModel id="username" placeholder="Enter your Address"
+                    #address="ngModel" required>
+                <p class="invalid-input"><span *ngIf="address.invalid && address.touched">Please Enter Valid address
+                    </span></p>
+
+                <input type="text" name="contact" ngModel id="password" placeholder="please enter contact number"
+                    #contact="ngModel" required maxlength="10">
+                <p class="invalid-input"><span *ngIf="contact.invalid && (contact.touched || contact.dirty)">Please
+                        Enter Valid contact number</span>
+                    <span *ngIf="contact.errors && contact.errors['maxlength']">contact must be at most 10
+                        characters</span>
+                    <!-- <span *ngIf="password.errors && password.errors['minlength']">Password must be at least 6 characters</span> -->
+                </p>
+
+            </div>
+            <div class="login-btn">
+                <button class="btn"> <a> Order Now</a></button>
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="box2">
+        <h3>Total Amount : 5000</h3>
+        <h4>Payment Method: <b>Cash On Delivery</b></h4>
+    </div>
+
+
+</div>

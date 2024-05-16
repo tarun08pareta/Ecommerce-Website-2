@@ -1,0 +1,50 @@
+<div class="cart-page">
+    <div>
+        <h1>CART PAGE</h1>
+        <div class="row">
+            <div class="col-sm-8 details">
+                <ul *ngFor="let item of cartList">
+                    <li><img src={{item.image}} alt=""></li>
+                    <li>
+                        <span>{{item.name}}</span>
+                    </li>
+                    <li>
+                        <span>Price:{{item.price}}</span>
+                    </li>
+                    <li>
+                        
+                            <span>Quantity:
+                                <button (click)="decreaseQuantity(item)">-</button>
+                                {{item.quantity}}
+                                <button (click)="increaseQuantity(item)">+</button>
+                             </span>
+                    </li>
+                    <li> <button class="btn" (click)="onRemoveFromCart(item.id!)"><a>Remove To Cart</a></button></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 summery" *ngIf="priceSummery">
+                <h3>summery</h3>
+                <ul>
+                    <li><span>Amount</span><span>{{priceSummery.price}}</span></li>
+                </ul>
+                <ul>
+                    <li><span>Tax</span><span>{{priceSummery.tex}}</span></li>
+                </ul>
+                <ul>
+                    <li><span>Deliver-Charge</span><span>{{priceSummery.deliver}}</span></li>
+                </ul>
+                <ul>
+                    <li><span>Discount</span><span>{{priceSummery.discount}}</span></li>
+                </ul>
+                <ul>
+                    <li><span>
+                            <h3>Total-Amount</h3>
+                        </span><span>
+                            <h3>{{priceSummery.total}}</h3>
+                        </span></li>
+                </ul>
+                <li> <button class="btn" (click)="checkOut()"><a>CheckOut</a></button></li>
+            </div>
+        </div>
+    </div>
+</div>

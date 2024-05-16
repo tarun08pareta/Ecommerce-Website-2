@@ -19,6 +19,7 @@ export interface product {
   description: string;
   id: string;
   quantity:undefined | number;
+  product_Id:undefined| string
 }
 
 export interface cart{
@@ -33,4 +34,12 @@ export interface cart{
   userId:string;
   productId:string;
 
+}
+
+export interface priceSummery{
+  price:number;
+  discount:number;
+  tex:number;
+  deliver:number;
+  total:number;
 }

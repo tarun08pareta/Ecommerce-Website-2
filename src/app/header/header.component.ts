@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
             let userData = userStore ? JSON.parse(userStore) : null;
             this.userName = userData.fullName;
             this.menuType = 'user';
+            this.prodSrv.getCartList(userData.id);  // home page pr aane pr cart 0 nhi hoga
             // console.warn('inside user');
           } else {
             // console.warn('outside seller');
@@ -51,6 +52,7 @@ export class HeaderComponent implements OnInit {
     }
     this.prodSrv.cartToData.subscribe((res) => {
       this.cartItem=res.length
+      
     })
   }
 
@@ -62,6 +64,7 @@ export class HeaderComponent implements OnInit {
   userLogout() {
     localStorage.removeItem('users');
     this.router.navigate(['/']);
+    this.prodSrv.cartToData.emit([]);
   }
 
   searchProducts(query: KeyboardEvent) {

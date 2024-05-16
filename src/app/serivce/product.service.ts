@@ -48,7 +48,7 @@ export class ProductService {
   }
   trendyProducts() {
     return this.http.get<product[]>(
-      Constant.API_END_POINT + Constant.METHODS.POPULAR_PRODUCT + `?_limit=8`
+      Constant.API_END_POINT + Constant.METHODS.POPULAR_PRODUCT + `?_limit=12`
     );
   }
 
@@ -64,6 +64,7 @@ export class ProductService {
     let localCartCheck = localStorage.getItem('localcart');
     if (!localCartCheck) {
       localStorage.setItem('localcart', JSON.stringify([data]));
+      this.cartToData.emit([data]);
     } else {
       cartData = JSON.parse(localCartCheck);
       cartData.push(data);
@@ -91,15 +92,37 @@ export class ProductService {
 
   getCartList(userId: string) {
     return this.http
-      .get<product[]>(`http://localhost:3000/cart?userId=`+userId, {
+      .get<product[]>(`http://localhost:3000/cart?userId=` + userId, {
         observe: 'response',
       })
       .subscribe((res) => {
-        console.warn('respoonse:' ,res )
+        // console.warn('respoonse:', res);
         if (res && res.body) {
           this.cartToData.emit(res.body);
-         
         }
       });
   }
+
+  removeToCartByUser(cartId: string) {
+    // return this.http.delete(
+    //   Constant.API_END_POINT + Constant.METHODS.CART+
+    //   cartId
+    // );
+    return this.http.delete(`http://localhost:3000/cart/` + cartId);
+  }
+
+  currentCartData() {
+    
+    let userStore = localStorage.getItem('users');
+    let userData = userStore ? JSON.parse(userStore) : null;
+     return this.http.get<cart[]>(`http://localhost:3000/cart?userId=` + userData.id);
+  }
+
+
+  updateCartItem(item: cart) {
+    return this.http.put<cart>(`http://localhost:3000/cart/${item.id}`, item);
+  }
+
+
+  
 }
