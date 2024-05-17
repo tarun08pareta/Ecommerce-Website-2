@@ -25,6 +25,9 @@ import { DeleteProductModalComponent } from './seller-home/delete-product-modal/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,19 +43,22 @@ import { CheckoutComponent } from './checkout/checkout.component';
     UserAuthComponent,
     DeleteProductModalComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    MyOrderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,RouterOutlet,RouterLink,FormsModule,HttpClientModule, NgbModule,
     MatDialogModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     provideClientHydration(),
     provideHttpClient(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHotToastConfig()
   ],
   bootstrap: [AppComponent]
 })

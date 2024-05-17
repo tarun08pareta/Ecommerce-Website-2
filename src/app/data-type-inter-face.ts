@@ -43,3 +43,13 @@ export interface priceSummery{
   deliver:number;
   total:number;
 }
+
+export interface order{
+  email:string,
+  address:string,
+  contact:number,
+  totalPrice:number,
+  userId:string
+
+
+}

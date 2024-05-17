@@ -4,7 +4,7 @@
 
     <div class="box">
         <h1>Add Shipping Address</h1>
-        <form #orderdata="ngForm">
+        <form #orderdata="ngForm" (ngSubmit)="orderNow(orderdata.value)">
             <div class="user">
 
 
@@ -20,7 +20,7 @@
                 <p class="invalid-input"><span *ngIf="address.invalid && address.touched">Please Enter Valid address
                     </span></p>
 
-                <input type="text" name="contact" ngModel id="password" placeholder="please enter contact number"
+                <input type="text" name="contact" ngModel  placeholder="please enter contact number"
                     #contact="ngModel" required maxlength="10">
                 <p class="invalid-input"><span *ngIf="contact.invalid && (contact.touched || contact.dirty)">Please
                         Enter Valid contact number</span>
@@ -39,7 +39,7 @@
 
 
     <div class="box2">
-        <h3>Total Amount : 5000</h3>
+        <h3>Total Amount : {{totalPrice}}</h3>
         <h4>Payment Method: <b>Cash On Delivery</b></h4>
     </div>
 

@@ -111,17 +111,18 @@ p{
     padding-top: 13px;
 }
 .box2{
-    width:382px;
-    height:520px;
-    font-size:16px;
-    padding:40px 40px;
+    width: 420px;
+    height: 390px;
+    font-size: 16px;
+    padding: 35px 13px;
     background-color: #0f044c;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 30px;
 
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around; */
+    display: flex;
+   flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
    
 }
 

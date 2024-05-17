@@ -54,6 +54,12 @@ export class HeaderComponent implements OnInit {
       this.cartItem=res.length
       
     })
+
+    // this.prodSrv.currentCartData().subscribe((res)=>{
+    //   this.cartItem=res.length
+      
+    // })
+    // console.warn("resp",this.cartItem)
   }
 
   logout() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../serivce/product.service';
 import { cart, product } from '../data-type-inter-face';
+import { HotToastClose, HotToastService } from '@ngxpert/hot-toast';
 
 @Component({
   selector: 'app-product-details',
@@ -17,7 +18,8 @@ export class ProductDetailsComponent implements OnInit {
   itemDData: any;
   constructor(
     private activateRoute: ActivatedRoute,
-    private productSrv: ProductService
+    private productSrv: ProductService,
+    private toast:HotToastService
   ) {}
   ngOnInit(): void {
     let product_Id = this.activateRoute.snapshot.paramMap.get('productId');
@@ -108,6 +110,7 @@ export class ProductDetailsComponent implements OnInit {
           // console.warn('res',res)
           if (res) {
             // alert('product added to cart');
+            this.toast.success('Successfully Add To Cart')
             this.productSrv.getCartList(userId);
             this.removecart = true;
           }
@@ -124,13 +127,14 @@ export class ProductDetailsComponent implements OnInit {
       let user = localStorage.getItem('users');
         let userId = user && JSON.parse(user).id;
 
-      console.warn('cartDataByUser', this.cartDataByUser);
+      // console.warn('cartDataByUser', this.cartDataByUser);
 
       this.cartDataByUser &&
         this.productSrv
           .removeToCartByUser(this.cartDataByUser.id)
           .subscribe((res) => {
             if (res) {
+              this.toast.success('Successfully Remove To Cart')
               this.productSrv.getCartList(userId);
               
             }
